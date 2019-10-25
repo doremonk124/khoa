@@ -19,4 +19,11 @@ const ACCOUNT_DASHBOARD = ACCOUNT + '/dashboard'
 const ACCOUNT_DEMO = ACCOUNT + '/demo'
 const ACCOUNT_USER = ACCOUNT + '/user'
 
+// Method
+const ACCOUNT_USER_ADD = ACCOUNT_USER + '/add'
+const ACCOUNT_USER_EDIT = ACCOUNT_USER + '/edit'
+const ACCOUNT_USER_LIST = ACCOUNT_USER + '/list'
+const ACCOUNT_USER_LOGIN = ACCOUNT_USER + '/login'
+const ACCOUNT_USER_PROFILE = ACCOUNT_USER + '/profile'
+
 

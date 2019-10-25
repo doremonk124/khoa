@@ -89,7 +89,7 @@
             async onSave () {
                 loading({ type: "open" });
                 let list_input = this.list_input
-                let path = 'account/user/add'
+                let path = ACCOUNT_USER_ADD
                 $.each(list_input, function(key, value) {
                     value.input_class = 'form-group'
                     value.validate = ''

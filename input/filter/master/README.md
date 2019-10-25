@@ -1,11 +1,14 @@
-Hướng dẫn sử dụng form :
-- form trả về 1 mảng data() lưu thông tin các thẻ input để dùng cho component input-helper.vue
-- Với 1 input sẽ có các field bắt buộc sau đây :
-    + control_type : Định dạng thẻ input gồm các loại đơn giản đang có hiện nay : hidden, text, email, number, tel, time,
-password, date, select, file cùng các loại custom như : textarea, multiple-select, selection-select, status, checkbox, radio.
-    + attribute : các thuộc tính của thẻ input như class, id, placeholder, maxLength, ... trong đó có các thuộc tính rất
-cần thiết như : name, value (thường để rỗng).
-    + validate : để hiện thị validate màu đỏ (thường để '')
-- Các field không bắt buộc : label, box-class (col-md-4 col-sm-6), input_class (form_group), required (flase), note, options_arr
-(bắt buộc với select), icon
-- Nếu muốn các thành phần tiếp theo tách riêng với các input trước đó có thể chỉ cần đặt  {  box_class : 'col-12', control_type: '', attributes : {} },
+Với filter, bạn cần đặt vị trí thư mục và tên theo đúng controller, khai báo các filter ở master/index.js
+Hướng dẫn sử dụng filter :
+- filter trả về 1 mảng data() lưu thông tin validate của các thẻ input để dùng cho component input-helper.vue
+- Với 1 filter sẽ có các field bắt buộc sau đây :
+    + name : name (attribute của thẻ input)
+
+- Các field validate đang có (không bắt buộc) : 
+    + required : giá trị không được để trống, với dữ liệu dạng array thì là độ dài mảng tối thiểu 1
+    + format : Định dạng dữ liệu ( hiện tại có 2 loại định dạng) : 
+        * email : định dạng kiểu email (phải có @, dấu '.' không được ở cuối cùng, @ không được ở đầu, không tồn tại khoảng trắng)
+        * password : định dạng mật khẩu (phải có ít nhất 1 ký tự đặc biệt, phải có ít nhất 1 số)
+    + length : độ dài dữ liệu (với dạng dữ liệu string và number) tồn tại tối thiểu 1 trong 2 :
+        * min : độ dài tối thiểu của mảng dữ liệu
+        * max : độ dài tối đa của mảng dữ liệu
