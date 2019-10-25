@@ -4,7 +4,7 @@
         <div class="page-header page-header-light">
             <div class="page-header-content header-elements-md-inline">
                 <div class="page-title d-flex">
-                    <h4>Trang chủ</h4>
+                    <h4>{{title}}</h4>
                 </div>
 
                 <div class="header-elements d-none text-center text-md-left mb-3 mb-md-0">
@@ -1971,6 +1971,15 @@
 
 <script>
     export default {
-        layout : 'account'
+        layout : 'account',
+        data() {
+            return {
+                title : 'Trang chủ'
+            }
+        },
+        mounted() {
+            Dashboard.initComponents();
+            Dashboard.initCharts();
+        }
     }
 </script>

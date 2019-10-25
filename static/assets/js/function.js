@@ -1,41 +1,47 @@
 // Thay đổi trạng thái
-function changeStatus(options) {
-    let ajax_url = options.url;
-    let page_reload = false;
-    let data = {};
-    if (options.id) {
-        data["id"] = options.id;
-    }
-    if (options.type == "checklist") {
-        let ids = [];
-        $(APP_CONTENT + " .table .checkbox-item:checked").each(function() {
-            ids.push($(this).val());
-        });
-        data["ids"] = ids;
-        data["status"] = parseInt(options.status);
-        page_reload = true;
-    }
+async function changeStatus(controller, module, list_ids, status) {
+    // let ajax_url = options.url;
+    // let page_reload = false;
+    // let data = {};
+    // if (options.id) {
+    //     data["id"] = options.id;
+    // }
+    // if (options.type == "checklist") {
+    //     let ids = [];
+    //     $(APP_CONTENT + " .table .checkbox-item:checked").each(function() {
+    //         ids.push($(this).val());
+    //     });
+    //     data["ids"] = ids;
+    //     data["status"] = parseInt(options.status);
+    //     page_reload = true;
+    // }
 
-    $.ajax({
-        url: ajax_url,
-        type: "POST",
-        data: data,
-        beforeSend: function() {
-            loading({ type: "open" });
-        },
-        success: function(result) {
-            if (page_reload === true) {
-                location.reload();
-            } else {
-                loading({ type: "close" });
-            }
-        },
-        complete: function() {
-            if (page_reload === false) {
-                notify({ text: NOTIFY_SUCCESS, type: "success" });
-            }
-        }
-    });
+    loading({ type: "open" });
+    await this.$store.dispatch(module + '/' + controller + '/changeStatus', { list_ids: list_ids, status: status}).then((res) => {
+        notify({ text: NOTIFY_SUCCESS, type: "success" });
+    })
+    loading({ type: "close" });
+
+    // $.ajax({
+    //     url: ajax_url,
+    //     type: "POST",
+    //     data: data,
+    //     beforeSend: function() {
+    //         loading({ type: "open" });
+    //     },
+    //     success: function(result) {
+    //         if (page_reload === true) {
+    //             location.reload();
+    //         } else {
+    //             loading({ type: "close" });
+    //         }
+    //     },
+    //     complete: function() {
+    //         if (page_reload === false) {
+    //             notify({ text: NOTIFY_SUCCESS, type: "success" });
+    //         }
+    //     }
+    // });
 }
 
 // Xóa dữ liệu

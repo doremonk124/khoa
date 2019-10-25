@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "nuxt": "^2.10.1"
+    "nuxt": "^2.10.1",
+    "nuxt-vuex-localstorage": "^1.2.6",
+    "v-select2-component": "^0.3.9",
+    "v-switch-case": "^1.0.3"
   },
   "devDependencies": {}
 }

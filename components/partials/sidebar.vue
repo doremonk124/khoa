@@ -26,8 +26,8 @@
                         <a href="#">
                             <img src="/global_assets/images/placeholders/placeholder.jpg" class="img-fluid rounded-circle shadow-1 mb-3" width="80" height="80" alt="">
                         </a>
-                        <h6 class="mb-0 text-white text-shadow-dark">Nguyễn Văn Nam</h6>
-                        <span class="font-size-sm text-white text-shadow-dark">System</span>
+                        <h6 class="mb-0 text-white text-shadow-dark">{{session_data.last_name}} {{session_data.first_name}}</h6>
+                        <span class="font-size-sm text-white text-shadow-dark">Developer</span>
                     </div>
 
                     <div class="sidebar-user-material-footer">
@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link" @click="logout">
                                 <i class="icon-switch2"></i>
                                 <span>Logout</span>
                             </a>
@@ -80,40 +80,21 @@
                     <!-- Main -->
                     <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Menu</div> <i class="icon-menu" title="Main"></i></li>
                     <li class="nav-item">
-                        <a href="account/dashboard" class="nav-link active">
-                            <i class="icon-home4"></i>
-                            <span>Trang chủ</span>
-                        </a>
+                        <nuxt-link to="/account/dashboard" class="nav-link"><i class="icon-home4"></i>Trang chủ</nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <a href="account/demo" class="nav-link">
-                            <i class="icon-stack2"></i>
-                            <span>Demo</span>
-                        </a>
+                        <nuxt-link to="/account/demo" class="nav-link"><i class="icon-stack2"></i>Demo</nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <a href="account/demo/layout-index" class="nav-link">
-                            <i class="icon-stack2"></i>
-                            <span>Demo - Index</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="account/demo/layout-add" class="nav-link">
-                            <i class="icon-stack2"></i>
-                            <span>Demo - Add</span>
-                        </a>
+                        <nuxt-link to="/account/demo/layout-add" class="nav-link"><i class="icon-stack2"></i>Demo - Add</nuxt-link>
                     </li>
                     <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Chung</div> <i class="icon-menu" title="Main"></i></li>
                     <li class="nav-item nav-item-submenu">
-                        <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Khách hàng</span></a>
+                        <a href="#" class="nav-link"><i class="icon-users2"></i> <span>Khách hàng</span></a>
 
                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                            <li class="nav-item"><a href="../../../../layout_1/LTR/default/full/index.html" class="nav-link">Default layout</a></li>
-                            <li class="nav-item"><a href="index.html" class="nav-link active">Layout 2</a></li>
-                            <li class="nav-item"><a href="../../../../layout_3/LTR/default/full/index.html" class="nav-link">Layout 3</a></li>
-                            <li class="nav-item"><a href="../../../../layout_4/LTR/default/full/index.html" class="nav-link">Layout 4</a></li>
-                            <li class="nav-item"><a href="../../../../layout_5/LTR/default/full/index.html" class="nav-link">Layout 5</a></li>
-                            <li class="nav-item"><a href="../../../../layout_6/LTR/default/full/index.html" class="nav-link disabled">Layout 6 <span class="badge bg-transparent align-self-center ml-auto">Coming soon</span></a></li>
+                            <li class="nav-item"><nuxt-link to="/account/user/list" class="nav-link"><i class="icon-users4"></i>Danh sách</nuxt-link></li>
+                            <li class="nav-item"><nuxt-link to="/account/user/add" class="nav-link"><i class="icon-user-plus"></i>Thêm khách hàng</nuxt-link></li>
                         </ul>
                     </li>
                     <li class="nav-item nav-item-submenu">
@@ -360,3 +341,45 @@
     </div>
     <!-- /main sidebar -->
 </template>
+
+<script>
+    export default {
+        data() {
+            console.log(JSON.parse(sessionStorage.getItem('data')))
+            return {
+                session_data : JSON.parse(sessionStorage.getItem('data')),
+            }
+        },
+        methods: {
+            async logout () {
+                let swalInit = swal.mixin();
+                let thisChild = this.$store
+                swalInit({
+                    title: "Bạn muốn đăng xuất?",
+                    type: "info",
+                    showCancelButton: true,
+                    confirmButtonText: "Xác nhận",
+                    cancelButtonText: "Hủy",
+                    confirmButtonClass: "btn btn-success",
+                    cancelButtonClass: "btn btn-danger",
+                    buttonsStyling: false
+                }).then(async function(result) {
+                    if (result.value) {
+                        try {
+                            await thisChild.dispatch('account/user/logout')
+                        } catch (e) {
+                            console.log(e)
+                        }
+                        location.reload()
+                    }
+                })
+            }
+        },
+    }
+</script>
+
+<style>
+    .nuxt-link-exact-active {
+        background-color: #394357;
+    }
+</style>

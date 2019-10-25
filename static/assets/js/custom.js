@@ -377,9 +377,7 @@ var Custom = (function() {
         });
 
         $(".table .checkbox-item").change(function() {
-            $(this)
-                .parents("tr")
-                .toggleClass("table-active");
+            $(this).parents("tr").toggleClass("table-active");
 
             var total = 0;
             $(".table .checkbox-item").each(function() {
@@ -399,6 +397,10 @@ var Custom = (function() {
                 $(".actions-status-change").addClass("d-none");
                 $(".table .checkbox-all").prop("checked", false);
             }
+        });
+
+        $(".table .input-order").on("input", function() {
+            $(".checkbox-item", $(this).parents("tr")).prop("checked", true).change();
         });
     };
 
@@ -611,7 +613,10 @@ var Custom = (function() {
                 document.querySelectorAll(".form-check-input-switchery")
             );
             elems.forEach(function(html) {
-                var switchery = new Switchery(html);
+                if(!html.classList.contains('confirm-check')) {
+                    html.classList.add('confirm-check')
+                    var switchery = new Switchery(html);
+                }
             });
         }
 

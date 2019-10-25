@@ -26,8 +26,8 @@ export default {
             {rel: 'stylesheet', href: '/assets/css/custom.css'},
         ],
         script: [
-            {src: '/global_assets/js/main/jquery.min.js'},
-            {src: '/global_assets/js/main/bootstrap.bundle.min.js'},
+            {src: '/global_assets/js/main/jquery.min.js', body: true},
+            {src: '/global_assets/js/main/bootstrap.bundle.min.js', body: true},
             {src: '/global_assets/js/plugins/loaders/blockui.min.js', body: true},
             {src: '/global_assets/js/plugins/visualization/d3/d3.min.js', body: true},
             {src: '/global_assets/js/plugins/visualization/d3/d3_tooltip.js', body: true},
@@ -48,7 +48,7 @@ export default {
             {src: '/global_assets/js/plugins/notifications/noty.min.js', body: true},
             {src: '/global_assets/js/plugins/notifications/sweet_alert.min.js', body: true},
             {src: '/assets/js/define.js', body: true},
-            {src: '/assets/js/app.js'},
+            {src: '/assets/js/app.js', body: true},
             {src: '/assets/js/custom.js', body: true},
             {src: '/assets/js/function.js', body: true},
             {src: '/global_assets/js/demo_pages/dashboard.js', body: true},
@@ -65,7 +65,10 @@ export default {
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: [],
+    plugins: [
+        '~/plugins/mixin',
+        // '~/plugins/vue-switch',
+    ],
     /*
      ** Nuxt.js dev-modules
      */
@@ -92,5 +95,8 @@ export default {
          */
         extend(config, ctx) {
         }
+    },
+    env: {
+        baseUrlAPI: 'https://core0817.herokuapp.com/api',
     }
 }

@@ -14,12 +14,12 @@
 
 <script>
 
-    import mainFooter from '~/components/partials/Footer.vue'
-    import mainSidebar from '~/components/partials/Sidebar.vue'
-    import mainNavbar from '~/components/partials/Navbar.vue'
+    import mainFooter from '~/components/partials/footer.vue'
+    import mainSidebar from '~/components/partials/sidebar.vue'
+    import mainNavbar from '~/components/partials/navbar.vue'
 
     export default {
-        // middleware: 'auth',
+        middleware: 'auth',
         components: {
             mainFooter, mainSidebar, mainNavbar
         },
@@ -27,17 +27,18 @@
             App.initBeforeLoad();
             App.initCore();
 
+            // When page is fully loaded
             window.addEventListener('load', function () {
-                Dashboard.initComponents();
-                Dashboard.initCharts();
-            })
-        }
+                Custom.init();
+                App.initAfterLoad();
+            });
+        },
 
-        // data() {
-        //     if(localStorage.getItem('data') && !sessionStorage.getItem('data')) this.$store.dispatch('createSession')
-        //     if (JSON.parse(sessionStorage.getItem('data')).location_id) this.$store.dispatch('general/account/getLocationAccount')
-        //     return {
-        //     }
-        // },
+        data() {
+            if(localStorage.getItem('data') && !sessionStorage.getItem('data')) this.$store.dispatch('account/user/createSession')
+            // if (JSON.parse(sessionStorage.getItem('data')).location_id) this.$store.dispatch('general/account/getLocationAccount')
+            return {
+            }
+        },
     }
 </script>
