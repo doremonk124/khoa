@@ -21,7 +21,7 @@
                         <button @click="changeOrder()" type="button" class="btn btn-sm bg-blue-400">Sắp xếp</button>
                     </div>
                     <div class="btn-group ml-1">
-                        <nuxt-link to="/account/user/add" class="btn btn-sm bg-indigo-400"><i class="icon-database-add mr-1"></i>Thêm mới</nuxt-link>
+                        <nuxt-link :to="{name : PATH.ACCOUNT_USER_ADD}" class="btn btn-sm bg-indigo-400"><i class="icon-database-add mr-1"></i>Thêm mới</nuxt-link>
                     </div>
                     <div class="btn-group ml-1">
                         <button type="button" class="btn btn-sm btn-line dropdown-toggle" data-toggle="dropdown">Công cụ</button>
@@ -100,7 +100,7 @@
                                 </td>
                                 <td>{{index + 1}}</td>
                                 <td class="fw-500">
-                                    <nuxt-link :to="{name: 'account-user-edit-id', params: { id:item.id } }"> {{item.name}}</nuxt-link>
+                                    <nuxt-link :to="{name: PATH.ACCOUNT_USER_EDIT_ID, params: { id:item.id } }"> {{item.name}}</nuxt-link>
                                 </td>
                                 <td>{{item.phone}}</td>
                                 <td>{{item.description}}</td>
@@ -137,7 +137,7 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <div class="dropdown-header">Action</div>
-                                                <a href="<%= route_page %>/edit/<%= item.id %>" class="dropdown-item"><i class="icon-pencil7"></i> Sửa</a>
+                                                <nuxt-link :to="{name: PATH.ACCOUNT_USER_EDIT_ID, params: { id:item.id } }" class="dropdown-item"><i class="icon-pencil7"></i> Sửa</nuxt-link>
                                                 <a  @click="deleteItems([item.id], null)" href="#" class="dropdown-item"><i class="icon-trash"></i> Xóa</a>
                                             </div>
                                         </div>
@@ -184,6 +184,7 @@
         data() {
             return {
                 title : 'Giao diện - Danh sách',
+                PATH : PATH,
                 url : 'account/user',
                 filter : {
                     keyword : ''

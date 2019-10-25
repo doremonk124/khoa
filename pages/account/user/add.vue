@@ -97,7 +97,6 @@
                 this.sendData(path, this.data_post).then((res) => {
                     if(res === 'success') {
                         //method
-                        console.log('method')
                         // this.saveData(path, this.data_post).then((res) => {
                             loading({ type: "close" });
                         //     if (res === 'success') {

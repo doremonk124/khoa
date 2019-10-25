@@ -52,6 +52,7 @@
         },
         data () {
             return {
+                PATH : PATH,
                 data_post : {},
             }
         },
@@ -72,7 +73,7 @@
                         this.saveData(path, this.data_post).then((res) => {
                             loading({ type: "close" });
                             if (res === 'success') {
-                                this.$router.push(ACCOUNT_DASHBOARD)
+                                this.$router.push({name : PATH.ACCOUNT_DASHBOARD})
                             }
                         })
                     } else {

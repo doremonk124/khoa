@@ -12,18 +12,41 @@ const NOTIFY_DATA_EXISTS = "Dữ liệu đã tồn tại và không thể thêm"
 const NOTIFY_SUCCESS = "Cập nhật dữ liệu thành công";
 
 // Module
-const ACCOUNT = '/account'
+const ACCOUNT = 'account'
 
 // Controller
-const ACCOUNT_DASHBOARD = ACCOUNT + '/dashboard'
-const ACCOUNT_DEMO = ACCOUNT + '/demo'
-const ACCOUNT_USER = ACCOUNT + '/user'
+const ACCOUNT_DASHBOARD = ACCOUNT + '-dashboard'
+const ACCOUNT_DEMO = ACCOUNT + '-demo'
+const ACCOUNT_USER = ACCOUNT + '-user'
 
 // Method
-const ACCOUNT_USER_ADD = ACCOUNT_USER + '/add'
-const ACCOUNT_USER_EDIT = ACCOUNT_USER + '/edit'
-const ACCOUNT_USER_LIST = ACCOUNT_USER + '/list'
-const ACCOUNT_USER_LOGIN = ACCOUNT_USER + '/login'
-const ACCOUNT_USER_PROFILE = ACCOUNT_USER + '/profile'
+const ACCOUNT_DEMO_LAYOUT = ACCOUNT_DEMO + '-layout-add'
+
+const ACCOUNT_USER_ADD = ACCOUNT_USER + '-add'
+const ACCOUNT_USER_EDIT_ID = ACCOUNT_USER + '-edit-id'
+const ACCOUNT_USER_LIST = ACCOUNT_USER + '-list'
+const ACCOUNT_USER_LOGIN = ACCOUNT_USER + '-login'
+const ACCOUNT_USER_PROFILE = ACCOUNT_USER + '-profile'
+
+// Path
+const PATH = {
+    // Module
+    ACCOUNT : ACCOUNT,
+
+    // Controller
+    ACCOUNT_DASHBOARD : ACCOUNT_DASHBOARD,
+    ACCOUNT_DEMO : ACCOUNT_DEMO,
+    ACCOUNT_USER : ACCOUNT_USER,
+
+    // Method
+    ACCOUNT_DEMO_LAYOUT : ACCOUNT_DEMO_LAYOUT,
+
+    ACCOUNT_USER_ADD : ACCOUNT_USER_ADD,
+    ACCOUNT_USER_EDIT_ID : ACCOUNT_USER_EDIT_ID,
+    ACCOUNT_USER_LIST : ACCOUNT_USER_LIST,
+    ACCOUNT_USER_LOGIN : ACCOUNT_USER_LOGIN,
+    ACCOUNT_USER_PROFILE : ACCOUNT_USER_PROFILE,
+
+}
 
 

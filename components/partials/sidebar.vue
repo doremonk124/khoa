@@ -80,21 +80,21 @@
                     <!-- Main -->
                     <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Menu</div> <i class="icon-menu" title="Main"></i></li>
                     <li class="nav-item">
-                        <nuxt-link to="/account/dashboard" class="nav-link"><i class="icon-home4"></i>Trang chủ</nuxt-link>
+                        <nuxt-link :to="{name : PATH.ACCOUNT_DASHBOARD}" class="nav-link"><i class="icon-home4"></i>Trang chủ</nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <nuxt-link to="/account/demo" class="nav-link"><i class="icon-stack2"></i>Demo</nuxt-link>
+                        <nuxt-link :to="{name : PATH.ACCOUNT_DEMO}" class="nav-link"><i class="icon-stack2"></i>Demo</nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <nuxt-link to="/account/demo/layout-add" class="nav-link"><i class="icon-stack2"></i>Demo - Add</nuxt-link>
+                        <nuxt-link :to="{name : PATH.ACCOUNT_DEMO_LAYOUT}" class="nav-link"><i class="icon-stack2"></i>Demo - Add</nuxt-link>
                     </li>
                     <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Chung</div> <i class="icon-menu" title="Main"></i></li>
                     <li class="nav-item nav-item-submenu">
                         <a href="#" class="nav-link"><i class="icon-users2"></i> <span>Khách hàng</span></a>
 
                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                            <li class="nav-item"><nuxt-link to="/account/user/list" class="nav-link"><i class="icon-users4"></i>Danh sách</nuxt-link></li>
-                            <li class="nav-item"><nuxt-link to="/account/user/add" class="nav-link"><i class="icon-user-plus"></i>Thêm khách hàng</nuxt-link></li>
+                            <li class="nav-item"><nuxt-link :to="{name : PATH.ACCOUNT_USER_LIST}" class="nav-link"><i class="icon-users4"></i>Danh sách</nuxt-link></li>
+                            <li class="nav-item"><nuxt-link :to="{name : PATH.ACCOUNT_USER_ADD}" class="nav-link"><i class="icon-user-plus"></i>Thêm khách hàng</nuxt-link></li>
                         </ul>
                     </li>
                     <li class="nav-item nav-item-submenu">
@@ -347,6 +347,7 @@
         data() {
             console.log(JSON.parse(sessionStorage.getItem('data')))
             return {
+                PATH : PATH,
                 session_data : JSON.parse(sessionStorage.getItem('data')),
             }
         },
