@@ -101,7 +101,7 @@
                 console.log(this.data_post)
                 loading({ type: "open" });
                 let list_input = this.list_input
-                let path = ACCOUNT_USER_EDIT
+                let path = 'account/user/edit'
                 $.each(list_input, function(key, value) {
                     value.input_class = 'form-group'
                     value.validate = ''

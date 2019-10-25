@@ -62,7 +62,7 @@
             async login_auth () {
                 loading({ type: "open" });
                 let list_input = this.list_input
-                let path = ACCOUNT_USER_LOGIN
+                let path = 'account/user/login'
                 $.each(list_input, function(key, value) {
                     value.input_class = value.input_class.replace(' has-error', '')
                     value.validate = ''
