@@ -78,6 +78,9 @@ export const actions = {
                 case 'password' :
                     let characters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/  //check kí tự đặc biệt
                     let number = /[0123456789]/                                //check số tự nhiên
+                    let str    = /[A-Z]/                                       //check chữ viết hoa
+                    let string = /[a-z]/                                       //check chữ viết thường
+
                     if(!characters.test(data.data_post[value.name])){
                         result[value.name] = 'Mật khẩu cần ít nhất 1 kí tự đặc biệt'
                     } else if(!number.test(data.data_post[value.name])){

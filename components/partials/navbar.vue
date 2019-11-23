@@ -132,12 +132,13 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
-                        <img src="/global_assets/images/lang/gb.png" class="img-flag mr-2" alt="">
-                        English
+                        <img src="/global_assets/images/lang/vn.png" class="img-flag mr-2" alt="">
+                        Tiếng Việt
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="#" class="dropdown-item english active"><img src="/global_assets/images/lang/gb.png" class="img-flag" alt=""> English</a>
+                        <a href="#" class="dropdown-item english active"><img src="/global_assets/images/lang/vn.png" class="img-flag" alt=""> Tiếng Việt</a>
+                        <a href="#" class="dropdown-item english"><img src="/global_assets/images/lang/gb.png" class="img-flag" alt=""> English</a>
                         <a href="#" class="dropdown-item ukrainian"><img src="/global_assets/images/lang/ua.png" class="img-flag" alt=""> Українська</a>
                         <a href="#" class="dropdown-item deutsch"><img src="/global_assets/images/lang/de.png" class="img-flag" alt=""> Deutsch</a>
                         <a href="#" class="dropdown-item espana"><img src="/global_assets/images/lang/es.png" class="img-flag" alt=""> España</a>
