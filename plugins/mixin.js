@@ -3,8 +3,8 @@ import axios from 'axios'
 import * as filter_input from '~/input/filter/master'
 import {empty} from "~/.nuxt/utils";
 
-Vue.config.devtools=false
-Vue.config.productionTip = false
+// Vue.config.devtools=false
+// Vue.config.productionTip = false
 
 Vue.mixin({
     mounted: function() {
@@ -50,6 +50,5 @@ Vue.mixin({
         removeAlert(store) {
             this.$store.commit(store + '/SET_ALERT', '');
         },
-
     }
 });
